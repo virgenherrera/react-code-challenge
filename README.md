@@ -19,7 +19,7 @@ Using the `date`, `input`,`multiply` and `pow` components, implement the followi
 It will be in charge of capturing and validate user data then if data is valid or deleted issuing (Emit) data, and also must to fulfill the following behaviours:
 * validate that only number is accepted in the input when the data entered is not a number
   *  Add `is-invalid` class to `[input]`.
-  * show `div.error-message` element and add `invalid-feedback` to it.
+  * show `div.error-message` element and add `invalid-feedback`class to it.
 * the "Reset" button will be able to clean the input, and also clean validation error if any.
 
 ### `Multiply Component`
