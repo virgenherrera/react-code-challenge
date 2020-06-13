@@ -6,37 +6,42 @@ import { InputComponent } from './components/InputComponent';
 import { MultiplyComponent } from './components/MultiplyComponent';
 import { PowComponent } from './components/PowComponent';
 
-export default function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Welcome to React Code Challenge!
-        </h1>
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+export default class App extends React.Component {
+	state = { data: '' };
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-8">
-            <InputComponent />
-          </div>
-        </div>
-      </div>
+	setData(data) {
+		this.setState({ data });
+	}
+	render() {
+		return (
+			<div className="App">
+				<header className="App-header">
+					<h1>Welcome to React Code Challenge!</h1>
+					<img src={logo} className="App-logo" alt="logo" />
+				</header>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <MultiplyComponent />
-          </div>
-          <div class="col-4">
-            <PowComponent />
-          </div>
-          <div class="col-4">
-            <DateComponent />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+				<div className="container">
+					<div className="row justify-content-center">
+						<div className="col-8">
+							<InputComponent setData={this.setData} data={this.state.data} />
+						</div>
+					</div>
+				</div>
+
+				<div className="container">
+					<div className="row">
+						<div className="col-4">
+							<MultiplyComponent data={this.state.data} />
+						</div>
+						<div className="col-4">
+							<PowComponent data={this.state.data} />
+						</div>
+						<div className="col-4">
+							<DateComponent data={this.state.data} />
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
