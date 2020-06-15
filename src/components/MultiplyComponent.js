@@ -1,14 +1,18 @@
-import React from 'react';
+import React from "react";
 
 export class MultiplyComponent extends React.Component {
-    render() {
-        return (
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">value*2</h5>
-                    <p class="card-text">computed value here!!!</p>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    const { data } = this.props;
+
+    return !data
+    ? null
+    :(
+      <div className="card text-center">
+        <div className="card-body">
+          <h5 className="card-title">value*2</h5>
+          <p className="card-text">{data * 2}</p>
+        </div>
+      </div>
+    );
+  }
 }

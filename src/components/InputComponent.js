@@ -1,18 +1,35 @@
 import React from 'react';
 
 export class InputComponent extends React.Component {
+    onInputChange(arg) {
+        this.props.setData(
+            !isNaN(arg)? Number(arg) : ''
+        );
+    }
+
+    onReset() {
+        this.props.setData('');
+    }
 
     render() {
+        const {data} = this.props;
+
         return (
-            <div class="input-group mb-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="type your Number" />
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Reset</button>
+            <div className="input-group mb-3">
+                <div className="input-group">
+                    <input
+                        type="text"
+                        className={'form-control ' + !data ? 'is-invalid' : ''}
+                        placeholder="type your Number"
+                        value={data}
+                        onChange={(ev) => this.onInputChange(ev.target.value)}
+                    />
+                    <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="button" onClick={this.onInputChange.bind(this)}>Reset</button>
                     </div>
-                    <div class="error-message">
+                    {!data && <div className="text-danger">
                         Value that you entered is not a number!
-                    </div>
+                    </div>}
                 </div>
             </div>
         );

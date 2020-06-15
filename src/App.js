@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { DateComponent } from './components/DateComponent';
@@ -7,6 +7,8 @@ import { MultiplyComponent } from './components/MultiplyComponent';
 import { PowComponent } from './components/PowComponent';
 
 export default function App() {
+  const [data, setData] = useState('')
+
   return (
     <div className="App">
       <header className="App-header">
@@ -16,24 +18,24 @@ export default function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
 
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-8">
-            <InputComponent />
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-8">
+            <InputComponent data={data} setData={setData} />
           </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <MultiplyComponent />
+      <div className="container">
+        <div className="row">
+          <div className="col-4">
+            <MultiplyComponent data={data} />
           </div>
-          <div class="col-4">
-            <PowComponent />
+          <div className="col-4">
+            <PowComponent data={data} />
           </div>
-          <div class="col-4">
-            <DateComponent />
+          <div className="col-4">
+            <DateComponent data={data} />
           </div>
         </div>
       </div>
